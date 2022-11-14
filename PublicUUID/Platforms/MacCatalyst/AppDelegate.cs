@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace PublicUUID;
+namespace Bitflow;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

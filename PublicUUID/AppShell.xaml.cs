@@ -1,4 +1,4 @@
-﻿namespace PublicUUID;
+﻿namespace Bitflow;
 
 public partial class AppShell : Shell
 {

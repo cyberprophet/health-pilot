@@ -1,24 +1,31 @@
-﻿namespace PublicUUID;
+﻿using System;
+using static Android.Provider.Settings;
+
+namespace Bitflow;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+    }
+    async void OnCounterClicked(object sender, EventArgs e)
+    {
+        await ReadDeviceInfo();
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+        SemanticScreenReader.Announce(CounterBtn.Text);
+    }
+    async Task ReadDeviceInfo()
+    {
+        string id;
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+#if ANDROID
+        var context = Android.App.Application.Context;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        id = Android.Provider.Settings.Secure.GetString(context.ContentResolver, Secure.AndroidId);
+        
+        await SecureStorage.Default.SetAsync("uuid", id);
+#endif
+        DisplayDeviceLabel.Text = id;
+    }
 }
-

@@ -2,7 +2,7 @@ using System;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace PublicUUID;
+namespace Bitflow;
 
 class Program : MauiApplication
 {
@@ -11,6 +11,7 @@ class Program : MauiApplication
 	static void Main(string[] args)
 	{
 		var app = new Program();
+
 		app.Run(args);
 	}
 }

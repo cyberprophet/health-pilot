@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>PublicUUID</ApplicationTitle>
+		<ApplicationTitle>공용단말기등록</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.bitflow.healthpilot.uuid</ApplicationId>
